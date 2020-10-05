@@ -1,6 +1,7 @@
 package com.pepivsky.chat.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.pepivsky.chat.R;
 import com.pepivsky.chat.model.User;
+import com.pepivsky.chat.view.ChatActivity;
 
 import java.util.ArrayList;
 
@@ -41,8 +43,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> { 
         holder.goToChatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Chateando con el usuario" + currentUser.getUsername(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Chateando con el usuario " + currentUser.getUsername(), Toast.LENGTH_SHORT).show();
                 //Intent con extras
+                Intent intent = new Intent(context, ChatActivity.class);
+                intent.putExtra("user", currentUser.getUsername());
+                context.startActivity(intent); //lanza la actividad del chat
             }
         });
     }

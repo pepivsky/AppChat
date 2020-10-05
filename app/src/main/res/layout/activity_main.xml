@@ -1,100 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity"
+    tools:context=".view.MainActivity">
 
-    >
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="fill_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        app:layout_constraintStart_toStartOf="parent"
+    <include
+        layout="@layout/merge_toolbar"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:titleTextColor="@android:color/white">
-
-
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/myImageOntoolbar"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_gravity="start"
-            android:src="@drawable/elon_musk" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="Elon Musk"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <EditText
-        android:id="@+id/edtMessage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:maxHeight="100dp"
-        android:layout_marginStart="10dp"
-
-        android:layout_marginBottom="10dp"
-        android:autofillHints="auto"
-        android:background="@drawable/rounded_background_edt"
-        android:hint="@string/message"
-        android:inputType="textCapSentences|textMultiLine"
-        android:padding="10dp"
-        android:textColor="@color/colorPrimary"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/space"
-
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         />
-
-    <Space
-        android:id="@+id/space"
-        android:layout_width="5dp"
-        android:layout_height="43dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/fabSend" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:src="@drawable/ic_send"
-
-        app:elevation="0dp"
-        app:fabCustomSize="43dp"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMessages"
-        android:layout_width="match_parent"
+        android:id="@+id/contactRecyclerList"
+        android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+
+
+        app:layout_constraintTop_toBottomOf="@id/my_toolbarMain"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/my_toolbar"
-        app:layout_constraintBottom_toTopOf="@id/edtMessage"
+        app:layout_constraintEnd_toEndOf="parent"
         />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
