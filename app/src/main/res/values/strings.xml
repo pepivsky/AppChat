@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppChat</string>
+    <string name="contentInfo">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</string>
+    <string name="mensaje">Mensaje</string>
+    <string name="message">Message</string>
+    <string name="ver_contacto">Ver contacto</string>
+</resources>
