@@ -43,16 +43,8 @@ public class ChatActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        //toolbar
-        Toolbar myToolbar = findViewById(R.id.my_toolbar);
-        setSupportActionBar(myToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
-        //components
-        sendButton = findViewById(R.id.fabSend);
-        edtMessage = findViewById(R.id.edtMessage);
-        tvUserNameToolbar = findViewById(R.id.tvUsernameToolbar);
+        initComponents();
 
-        messagesList = findViewById(R.id.recyclerMessages);
         messagesList.setHasFixedSize(true);
         adapter = new MessageAdapter(new ArrayList<Message>());
         messagesList.setAdapter(adapter);
@@ -88,6 +80,19 @@ public class ChatActivity extends AppCompatActivity {
 
     }
 
+    private void initComponents() {
+        //toolbar
+        Toolbar myToolbar = findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowTitleEnabled(false);
+        //components
+        sendButton = findViewById(R.id.fabSend);
+        edtMessage = findViewById(R.id.edtMessage);
+        tvUserNameToolbar = findViewById(R.id.tvUsernameToolbar);
+
+        messagesList = findViewById(R.id.recyclerMessages);
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -120,6 +125,7 @@ public class ChatActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.ver_contacto:
                 Intent intent = new Intent(this, ContactDetailActivity.class);
+                intent.putExtra("user", tvUserNameToolbar.getText().toString());
                 startActivity(intent);
                 return true;
 
